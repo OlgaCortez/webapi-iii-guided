@@ -24,7 +24,7 @@ function gateKeeper(req, res, next) {
   // data can come in the body, url parameters, query string, headers
   // new way of reading data sent by the client
   const password = req.headers.password || '';
-  if (!password === 'mellon') {
+  if (!password) {
     res.status(400).json({message: "Please provide password."});
   } else if (password.toLowerCase() === 'mellon') {
       next();
